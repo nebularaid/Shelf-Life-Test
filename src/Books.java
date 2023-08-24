@@ -9,9 +9,9 @@ public class Books {
     private final ArrayList<Book> toRead = new ArrayList<>();
     private final ArrayList<Book> currentRead = new ArrayList<>();
     private final ArrayList<Book> read = new ArrayList<>();
-    private int booksRead;
-    private int booksToRead;
-    private int currentlyReading;
+    private int readCount;
+    private int TBRCount;
+    private int currentReadCount;
 
     public Books() {
     }
@@ -65,21 +65,17 @@ public class Books {
                 book.setBook(title, columns[1], rating, avgRating, published, pages);
 
                 if (dateRead != null) book.setDateRead(dateRead);
-
-                if (review != null) {
-                    book.setReview(review);
-                    //System.out.println(review);
-                }
+                if (review != null) book.setReview(review);
 
                 if (line.contains("currently-reading")) {
                     this.addCurrentRead(book);
-                    this.currentlyReading++;
+                    this.currentReadCount++;
                 } else if (line.contains("to-read")) {
                     this.addToTBR(book);
-                    this.booksToRead++;
+                    this.TBRCount++;
                 } else if (line.contains("read")) {
                     this.addRead(book);
-                    this.booksRead++;
+                    this.readCount++;
                 }
             }
         } catch (Exception e) {
@@ -100,37 +96,28 @@ public class Books {
         this.read.add(book);
     }
 
-    public void getCurrentRead() {
-        for (Book book : this.currentRead) {
-            System.out.println(book);
-        }
-        System.out.println();
+    public ArrayList<Book> getToRead() {
+        return toRead;
     }
 
-    public void getRead() {
-        for (Book book : this.read) {
-            System.out.println(book);
-        }
-        System.out.println();
+    public ArrayList<Book> getCurrentRead() {
+        return currentRead;
     }
 
-    public void getTBR() {
-        for (Book book : this.toRead) {
-            System.out.println(book);
-        }
-        System.out.println();
+    public ArrayList<Book> getRead() {
+        return read;
     }
 
-    public int getBooksRead() {
-        return booksRead;
+    public int getReadCount() {
+        return readCount;
     }
 
-    public int getBooksToRead() {
-        return booksToRead;
+    public int getTBRCount() {
+        return TBRCount;
     }
 
-    public int getCurrentlyReading() {
-        return currentlyReading;
+    public int getCurrentReadCount() {
+        return currentReadCount;
     }
 
     private void sortTBR() {

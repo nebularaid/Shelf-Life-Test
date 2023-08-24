@@ -9,9 +9,6 @@ public class Book {
     private String review;
     private int pages;
 
-    public Book() {
-    }
-
     public void setBook(String title, String author, int rating, double avgRating, int initPublished, int pages) {
         this.title = title;
         this.author = author;
@@ -24,11 +21,15 @@ public class Book {
     public void setDateRead(String dateRead) {
         this.dateRead = dateRead;
     }
-
+    public String getDateRead() {
+        return dateRead;
+    }
     public void setReview(String review) {
         this.review = review;
     }
-
+    public String getReview() {
+        return review;
+    }
     public String toString() {
         return this.title + " - by " + this.author + ". Published in " + this.initPublished;
     }

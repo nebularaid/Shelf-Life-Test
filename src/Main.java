@@ -3,12 +3,24 @@
 public class Main {
     public static void main(String[] args) {
         Books bookshelf = new Books();
-        bookshelf.setBooks("C:\\Users\\sharm\\Downloads\\goodreads.csv");
-        System.out.println("To be read: " + bookshelf.getBooksToRead() + " books");
-        bookshelf.getTBR();
-        System.out.println("Read: " + bookshelf.getBooksRead() + " books");
-        bookshelf.getRead();
-        System.out.println("Currently reading: " + bookshelf.getCurrentlyReading() + " books");
-        bookshelf.getCurrentRead();
+        bookshelf.setBooks("C:\\Users\\sharm\\Downloads\\goodreadsMINE.csv");
+        System.out.println("To be read: " + bookshelf.getTBRCount() + " books");
+        for (Book book : bookshelf.getToRead()) {
+            System.out.println(book);
+        }
+        System.out.println();
+
+        System.out.println("Read: " + bookshelf.getReadCount() + " books");
+        for (Book book : bookshelf.getRead()) {
+            System.out.println(book);
+        }
+        System.out.println();
+
+        System.out.println("Currently reading: " + bookshelf.getCurrentReadCount() + " books");
+
+        for (Book book : bookshelf.getCurrentRead()) {
+            System.out.println(book);
+        }
+        System.out.println();
     }
 }
