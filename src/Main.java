@@ -3,7 +3,7 @@
 public class Main {
     public static void main(String[] args) {
         Books bookshelf = new Books();
-        bookshelf.setBooks("C:\\Users\\sharm\\Downloads\\goodreadsMINE.csv");
+        bookshelf.setBooks("C:\\Users\\sharm\\Downloads\\goodreads.csv");
         System.out.println("To be read: " + bookshelf.getTBRCount() + " books");
         for (Book book : bookshelf.getToRead()) {
             System.out.println(book);

@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Book {
     private int ISBN;
     private String title;
@@ -5,7 +7,7 @@ public class Book {
     private int rating;
     private double avgRating;
     private int initPublished;
-    private String dateRead;
+    private LocalDate dateRead;
     private String review;
     private int pages;
 
@@ -19,9 +21,17 @@ public class Book {
     }
 
     public void setDateRead(String dateRead) {
-        this.dateRead = dateRead;
+        String[] pieces = dateRead.split("/");
+        String day = pieces[0];
+        String month = pieces[1];
+        String year = pieces[2];
+
+        dateRead = year + "-" + month + "-" + day;
+        this.dateRead = LocalDate.parse(dateRead);
+        //System.out.println(this.dateRead);
     }
-    public String getDateRead() {
+
+    public LocalDate getDateRead() {
         return dateRead;
     }
     public void setReview(String review) {

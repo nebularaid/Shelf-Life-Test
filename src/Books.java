@@ -28,7 +28,6 @@ public class Books {
                 String line = reader.nextLine();
                 Matcher matcherTitle = titlePat.matcher(line);
                 Matcher matcherReview = reviewPat.matcher(line);
-                Matcher matcherDateRead = dateReadPat.matcher(line);
                 String title = null;
                 String review = null;
                 String dateRead = null;
@@ -44,7 +43,6 @@ public class Books {
                     review = matcherReview.group();
                     line = line.replace(review, "nullified");
                 }
-                if (matcherDateRead.find()) dateRead = matcherDateRead.group();
 
                 String[] columns = line.split(",");
                 int last = columns.length - 1;
@@ -64,7 +62,12 @@ public class Books {
                 Book book = new Book();
                 book.setBook(title, columns[1], rating, avgRating, published, pages);
 
-                if (dateRead != null) book.setDateRead(dateRead);
+                Matcher matcherDateRead = dateReadPat.matcher(columns[6]);
+
+                if (matcherDateRead.find()) {
+                    dateRead = matcherDateRead.group();
+                    book.setDateRead(dateRead);
+                }
                 if (review != null) book.setReview(review);
 
                 if (line.contains("currently-reading")) {
@@ -82,6 +85,9 @@ public class Books {
             System.out.println("ERROR");
             e.printStackTrace();
         }
+
+        BookSorter sorter = new BookSorter(read);
+        sorter.sortByDateRead();
     }
 
     public void addToTBR(Book book) {
