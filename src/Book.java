@@ -1,7 +1,6 @@
 import java.time.LocalDate;
 
 public class Book {
-    private int ISBN;
     private final String title;
     private final String author;
     private String additionalAuthors;
@@ -45,10 +44,6 @@ public class Book {
 
     public void setDateRead(LocalDate dateRead) {
         this.dateRead = dateRead;
-    }
-
-    public void setDateRead(String dateRead) {
-
     }
 
     public LocalDate getDateRead() {
