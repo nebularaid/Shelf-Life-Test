@@ -59,6 +59,6 @@ public class Book {
     }
 
     public String toString() {
-        return this.title + " - by " + this.author + ". Published in " + this.initPublished;
+        return this.title + " - " + this.author + ". Published in " + this.initPublished;
     }
 }

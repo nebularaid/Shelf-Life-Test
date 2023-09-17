@@ -42,22 +42,26 @@ public class Shelves {
                 }
 
                 String shelf = rs.getString(9);
-                switch (shelf) {
-                    case "to-read":
-                        TBR.addTBR(book);
-                        break;
-                    case "read":
-                        read.addRead(book);
-                        break;
-                    case "currently-reading":
-                        current.addCurrentRead(book);
-                        break;
-                }
+                shelveBook(book, shelf);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
+    }
+
+    private void shelveBook(Book book, String shelf) {
+        switch (shelf) {
+            case "to-read":
+                TBR.addTBR(book);
+                break;
+            case "read":
+                read.addRead(book);
+                break;
+            case "currently-reading":
+                current.addCurrentRead(book);
+                break;
+        }
     }
 
     public Read getRead() {

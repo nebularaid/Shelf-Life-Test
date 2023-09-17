@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class BookSorter {
-    private ArrayList<Book> list;
+    private final ArrayList<Book> list;
 
     public BookSorter(ArrayList<Book> list) {
         this.list = list;

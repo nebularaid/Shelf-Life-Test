@@ -9,10 +9,6 @@ public class ToBeRead {
         TBRCount++;
     }
 
-    public ArrayList<Book> getToRead() {
-        return toBeRead;
-    }
-
     public int getTBRCount() {
         return TBRCount;
     }

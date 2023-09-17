@@ -10,10 +10,6 @@ public class CurrentRead {
         currentCount++;
     }
 
-    public ArrayList<Book> getCurrentRead() {
-        return currentRead;
-    }
-
     public int getCurrentCount() {
         return currentCount;
     }

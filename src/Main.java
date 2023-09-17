@@ -8,7 +8,6 @@ public class Main {
         Shelves shelve = new Shelves();
         shelve.bookAndShelve(rs);
 
-
         Scanner reader = new Scanner(System.in);
         UserInterface ui = new UserInterface(reader);
 

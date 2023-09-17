@@ -9,10 +9,6 @@ public class Read {
         readCount++;
     }
 
-    public ArrayList<Book> getRead() {
-        return read;
-    }
-
     public int getReadCount() {
         return readCount;
     }
